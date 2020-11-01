@@ -3,7 +3,7 @@ import { FiShoppingCart } from 'react-icons/fi';
 function App() {
   return (
     <div>
-      <header >
+      <header>
         <div className="Container">
           <div className="HeaderBar">
             <span className="AppName">OnlineGameStore</span>
@@ -11,6 +11,7 @@ function App() {
           </div>
         </div>
       </header>
+      <h2 className="Title">Play Has No Limits</h2>
     </div>
   );
 }

@@ -39,6 +39,17 @@ header {
   font-size: 1.4rem;
 }
 
+.Title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background-color: #071394;
+  color: white;
+  font-weight: 300;
+  letter-spacing: .4rem;
+}
+
 @media (min-width: 900px) {
   .Container {
     margin: 0 auto;
