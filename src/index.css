@@ -1,0 +1,52 @@
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+header {
+  box-shadow: 0 0.5px 8px 0.4px black;
+}
+
+.AppName {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.HeaderBar {
+  display: flex;
+  justify-content: space-between;
+  color: #071394;
+  margin: 0 auto;
+}
+
+.HeaderBar span {
+  padding: 10px;
+  font-size: 1.4rem;
+}
+
+@media (min-width: 900px) {
+  .Container {
+    margin: 0 auto;
+    max-width: 900px;
+  }
+
+  .HeaderBar span {
+    padding: 10px 0 10px 0;
+    font-size: 1.4rem;
+  }
+}
