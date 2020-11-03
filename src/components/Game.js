@@ -1,4 +1,5 @@
 import React from 'react';
+import './Game.css';
 import { FiDollarSign } from 'react-icons/fi';
 
 function Game({ item }) {

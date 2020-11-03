@@ -1,0 +1,21 @@
+.Game {
+  box-shadow: 0 0 6px .5px black;
+  margin-bottom: 15px;
+  padding: 10px;
+  max-width: 300px;
+}
+
+.Game img {
+  width: 100%;
+}
+
+.Game span {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+@media (min-width: 650px) {
+  .Game {
+    margin-bottom: 20px;
+  }
+}
