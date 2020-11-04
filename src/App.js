@@ -55,21 +55,6 @@ const initialGamesState = {
   ]
 }
 
-const initialCartState = [
-  {
-    id: "111",
-    title: "The witcher 3",
-    imageUrl: "https://planete-play.fr/images/2014/06/The-Witcher-3-Wild-Hunt-Jaquette-PS4.jpg",
-    price: "49.99",
-  },
-  {
-    id: "111",
-    title: "The witcher 3",
-    imageUrl: "https://planete-play.fr/images/2014/06/The-Witcher-3-Wild-Hunt-Jaquette-PS4.jpg",
-    price: "49.99",
-  },
-]
-
 function gamesReducer(state, action) {
   switch (action.type) {
     default:
@@ -79,7 +64,24 @@ function gamesReducer(state, action) {
 
 function App() {
   const [games, dispatchGames] = useReducer(gamesReducer, initialGamesState);
-  const [cartItems, setCartItems] = useState(initialCartState);
+  const [cartItems, setCartItems] = useState([]);
+
+  function onItemAdd(item) {
+    const existingItemIndex = cartItems.findIndex(i => i.id === item.id);
+    if (existingItemIndex !== -1) return;
+  
+    const newCartItems = [...cartItems, item];
+    setCartItems(newCartItems);
+  }
+
+  function onItemRemove(item) {
+    const itemIndex = cartItems.findIndex(i => i.id === item.id);
+    const newCartItems = [
+      ...cartItems.slice(0, itemIndex),
+      ...cartItems.slice(itemIndex + 1)
+    ];
+    setCartItems(newCartItems);
+  }
 
   return (
     <div>
@@ -94,7 +96,12 @@ function App() {
 
       <h2 className="Title">Play Has No Limits</h2>
 
-      <GameList list={games.data}/>
+      <GameList 
+        list={games.data} 
+        onItemAdd={onItemAdd}
+        onItemRemove={onItemRemove}
+        cartItems={cartItems}
+      />
     </div>
   );
 }
