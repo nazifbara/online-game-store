@@ -1,5 +1,4 @@
 import { useReducer, useState } from 'react';
-import { FiShoppingCart } from 'react-icons/fi';
 import GameList from './components/GameList';
 import Cart from './components/Cart';
 
