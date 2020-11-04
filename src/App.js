@@ -1,6 +1,7 @@
-import { useReducer } from 'react';
+import { useReducer, useState } from 'react';
 import { FiShoppingCart } from 'react-icons/fi';
 import GameList from './components/GameList';
+import Cart from './components/Cart';
 
 const initialGamesState = {
   data: [
@@ -55,6 +56,21 @@ const initialGamesState = {
   ]
 }
 
+const initialCartState = [
+  {
+    id: "111",
+    title: "The witcher 3",
+    imageUrl: "https://planete-play.fr/images/2014/06/The-Witcher-3-Wild-Hunt-Jaquette-PS4.jpg",
+    price: "49.99",
+  },
+  {
+    id: "111",
+    title: "The witcher 3",
+    imageUrl: "https://planete-play.fr/images/2014/06/The-Witcher-3-Wild-Hunt-Jaquette-PS4.jpg",
+    price: "49.99",
+  },
+]
+
 function gamesReducer(state, action) {
   switch (action.type) {
     default:
@@ -64,6 +80,7 @@ function gamesReducer(state, action) {
 
 function App() {
   const [games, dispatchGames] = useReducer(gamesReducer, initialGamesState);
+  const [cartItems, setCartItems] = useState(initialCartState);
 
   return (
     <div>
@@ -71,7 +88,7 @@ function App() {
         <div className="Container">
           <div className="HeaderBar">
             <span className="AppName">OnlineGameStore</span>
-            <span className="Cart"><FiShoppingCart/></span>
+            <Cart items={cartItems} />
           </div>
         </div>
       </header>

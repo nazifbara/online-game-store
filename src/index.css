@@ -31,7 +31,6 @@ header {
   display: flex;
   justify-content: space-between;
   color: #071394;
-  margin: 0 auto;
 }
 
 .HeaderBar span {
