@@ -105,7 +105,7 @@ function App() {
             onItemAdd={onItemAdd}
             onItemRemove={onItemRemove}
             cartItems={cartItems}
-        />
+          />
         )}
       </GameList>
     </div>
