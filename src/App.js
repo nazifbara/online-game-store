@@ -1,5 +1,6 @@
 import { useReducer, useState } from 'react';
 import GameList from './components/GameList';
+import Game from './components/Game';
 import Cart from './components/Cart';
 
 const initialGamesState = {
@@ -96,12 +97,17 @@ function App() {
 
       <h2 className="Title">Play Has No Limits</h2>
 
-      <GameList 
-        list={games.data} 
-        onItemAdd={onItemAdd}
-        onItemRemove={onItemRemove}
-        cartItems={cartItems}
-      />
+      <GameList list={games.data}>
+        {item => (
+          <Game 
+            key={item.id}
+            item={item}
+            onItemAdd={onItemAdd}
+            onItemRemove={onItemRemove}
+            cartItems={cartItems}
+        />
+        )}
+      </GameList>
     </div>
   );
 }

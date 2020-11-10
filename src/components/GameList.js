@@ -1,25 +1,10 @@
 import React from 'react';
 import './GameList.css';
-import Game from './Game';
 
-
-function GameList({ 
-  list, 
-  onItemAdd,
-  onItemRemove,
-  cartItems 
-}) {
+function GameList({ list, children}) {
   return (
     <section className="GameList">
-      {list.map(g => (
-        <Game 
-          key={g.id} 
-          item={g} 
-          onItemAdd={onItemAdd}
-          onItemRemove={onItemRemove}
-          cartItems={cartItems}
-        />
-      ))}
+      {list.map(g => children(g))}
     </section>
   );
 };
