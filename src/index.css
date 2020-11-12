@@ -32,6 +32,12 @@ header {
   font-family: 'Orbitron', sans-serif;
 }
 
+.AppName a {
+  text-decoration: none;
+  color: #071394;
+
+}
+
 .HeaderBar {
   display: flex;
   justify-content: space-between;
