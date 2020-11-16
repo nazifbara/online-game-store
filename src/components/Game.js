@@ -1,14 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Game.css';
 import { FiDollarSign } from 'react-icons/fi';
+import { CartContext } from '../context';
 
 
-function Game({ 
-  item, 
-  onItemAdd, 
-  onItemRemove, 
-  cartItems 
-}) {
+function Game({ item, }) {
+  let { cartItems, onItemAdd, onItemRemove } = useContext(CartContext);
   const existingCartItem = cartItems.findIndex(i => i.id === item.id);
   const isItemOnCart = existingCartItem !== -1;
   return (

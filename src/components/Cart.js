@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FiShoppingCart } from 'react-icons/fi';
+import { useHistory } from 'react-router-dom';
+import { CartContext } from '../context';
 
-function Cart({ items }) {
-  const isCartEmpty = items.length > 0;
-  const style = isCartEmpty ? { color: 'red' } : {};
+
+function Cart() {
+  let history = useHistory();
+  let { cartItems } = useContext(CartContext); 
+  let style = { cursor: "pointer" };
+  const isCartEmpty = cartItems.length > 0;
+  style = isCartEmpty ? { color: 'red', ...style } : {...style};
 
   return (
-    <span style={style}>
-      <span>{items.length}</span>
+    <span 
+      style={style}
+      onClick={() => history.push('/cart')}
+    >
+      <span>{cartItems.length}</span>
       <FiShoppingCart/>
     </span>
   )
