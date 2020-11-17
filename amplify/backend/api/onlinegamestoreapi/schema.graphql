@@ -1,0 +1,12 @@
+type Game @model 
+  @auth(rules: [
+    { allow: public, operations: [read] },
+    { allow: groups, groups: ["Admin"] }
+  ])
+{
+  id: ID!
+  name: String!
+  description: String
+  price: Int!
+  releaseDate: String!
+}
