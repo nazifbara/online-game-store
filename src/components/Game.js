@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import './Game.css';
 import { FiDollarSign } from 'react-icons/fi';
 import { CartContext } from '../context';
+import { printPrice } from '../utility';
 
-
-function Game({ item, }) {
+function Game({ item }) {
   let { cartItems, onItemAdd, onItemRemove } = useContext(CartContext);
-  const existingCartItem = cartItems.findIndex(i => i.id === item.id);
+  const existingCartItem = cartItems.findIndex((i) => i.id === item.id);
   const isItemOnCart = existingCartItem !== -1;
   return (
     <article className="Game" key={item.id}>
@@ -14,22 +14,24 @@ function Game({ item, }) {
       <div className="GameMeta">
         <div>
           <h3>{item.title}</h3>
-          <span><FiDollarSign/>{item.price}</span>
+          <span>
+            <FiDollarSign />
+            {printPrice(item.price)}
+          </span>
         </div>
         {isItemOnCart ? (
-          <button 
-            onClick={() => onItemRemove(item)} 
-            style={{backgroundColor: "red"}}
+          <button
+            onClick={() => onItemRemove(item)}
+            style={{ backgroundColor: 'red' }}
           >
             Remove from cart
           </button>
         ) : (
           <button onClick={() => onItemAdd(item)}>Add to cart</button>
-        ) 
-        }
+        )}
       </div>
     </article>
-  )
+  );
 }
 
 export default Game;
