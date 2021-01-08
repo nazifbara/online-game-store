@@ -1,12 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './Game.css';
-import { CartContext } from '../context';
 import { printPrice } from '../utility';
+import AddToCart from './AddToCart';
 
 function Game({ item }) {
-  let { cartItems, onItemAdd, onItemRemove } = useContext(CartContext);
-  const existingCartItem = cartItems.findIndex((i) => i.id === item.id);
-  const isItemOnCart = existingCartItem !== -1;
   return (
     <article className="Game" key={item.id}>
       <img alt="" src={item.imageUrl} />
@@ -15,16 +12,7 @@ function Game({ item }) {
           <h3>{item.title}</h3>
           <span>{printPrice(item.price)}</span>
         </div>
-        {isItemOnCart ? (
-          <button
-            onClick={() => onItemRemove(item)}
-            style={{ backgroundColor: 'red' }}
-          >
-            Remove from cart
-          </button>
-        ) : (
-          <button onClick={() => onItemAdd(item)}>Add to cart</button>
-        )}
+        <AddToCart item={item} />
       </div>
     </article>
   );

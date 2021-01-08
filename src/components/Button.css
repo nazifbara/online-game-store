@@ -1,0 +1,26 @@
+.Button {
+  opacity: 0.9;
+  border: none;
+  border-radius: 10px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.default {
+  background-color: #7a7878;
+  color: whitesmoke;
+}
+
+.primary {
+  background-color: #071394;
+  color: whitesmoke;
+}
+
+.danger {
+  background-color: red;
+  color: whitesmoke;
+}
+
+Button:hover {
+  opacity: 1;
+}

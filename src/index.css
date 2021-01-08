@@ -57,7 +57,7 @@ header {
   background-color: #071394;
   color: white;
   font-weight: 300;
-  letter-spacing: .4rem;
+  letter-spacing: 0.4rem;
 }
 
 @media (min-width: 900px) {
