@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import './Game.css';
-import { FiDollarSign } from 'react-icons/fi';
 import { CartContext } from '../context';
 import { printPrice } from '../utility';
 
@@ -14,10 +13,7 @@ function Game({ item }) {
       <div className="GameMeta">
         <div>
           <h3>{item.title}</h3>
-          <span>
-            <FiDollarSign />
-            {printPrice(item.price)}
-          </span>
+          <span>{printPrice(item.price)}</span>
         </div>
         {isItemOnCart ? (
           <button

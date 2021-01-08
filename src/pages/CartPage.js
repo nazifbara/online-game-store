@@ -22,7 +22,7 @@ function Cart() {
           {cartItems.map((i) => (
             <tr key={i.id}>
               <td>{i.title}</td>
-              <td>${printPrice(i.price)}</td>
+              <td>{printPrice(i.price)}</td>
               <td>
                 <input
                   type="number"
@@ -35,13 +35,13 @@ function Cart() {
                 <br />
                 <button onClick={() => onItemRemove(i)}>remove</button>
               </td>
-              <td>${printPrice(i.total)}</td>
+              <td>{printPrice(i.total)}</td>
             </tr>
           ))}
         </tbody>
       </table>
       <span>
-        <strong>Total: ${printPrice(total)}</strong>
+        <strong>Total: {printPrice(total)}</strong>
       </span>
       <br />
       <a href="/#">Procced to checkout</a>
