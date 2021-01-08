@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+import './Home.css';
 import GameList from '../components/GameList';
 import Game from '../components/Game';
 
