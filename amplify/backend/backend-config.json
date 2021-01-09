@@ -1,1 +1,10 @@
-{}
+{
+  "auth": {
+    "onlinegamestored9698489": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
