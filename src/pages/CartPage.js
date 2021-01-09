@@ -1,10 +1,9 @@
 import './CartPage.css';
-import { CartContext } from '../context';
+import { useCart } from '../context/cart-context';
 import { printPrice } from '../utility';
-import { useContext } from 'react';
 
 function Cart() {
-  const { cartItems, onItemRemove, onQuantityChange } = useContext(CartContext);
+  const [cartItems, , onItemRemove, onQuantityChange] = useCart();
   const total = cartItems.reduce((total, item) => total + item.total, 0);
   return (
     <div className="Container">

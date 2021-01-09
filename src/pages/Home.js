@@ -64,7 +64,7 @@ function gamesReducer(state, action) {
 }
 
 function Home() {
-  const [games, dispatchGames] = useReducer(gamesReducer, initialGamesState);
+  const [games] = useReducer(gamesReducer, initialGamesState);
 
   return (
     <div>

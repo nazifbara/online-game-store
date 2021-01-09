@@ -1,9 +1,8 @@
-import { useContext } from 'react';
 import Button from './Button';
-import { CartContext } from '../context';
+import { useCart } from '../context/cart-context';
 
 function AddToCart({ item }) {
-  let { cartItems, onItemAdd, onItemRemove } = useContext(CartContext);
+  const [cartItems, onItemAdd, onItemRemove] = useCart();
   const existingCartItem = cartItems.findIndex((i) => i.id === item.id);
   const isItemInCart = existingCartItem !== -1;
 
