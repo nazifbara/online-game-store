@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-onlinegamestore-dev-184108-authRole",
+      "UnauthRoleArn": "arn:aws:iam::070468362108:role/amplify-onlinegamestore-dev-184108-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::070468362108:role/amplify-onlinegamestore-dev-184108-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "amplify-onlinegamestore-dev-184108-deployment",
+      "UnauthRoleName": "amplify-onlinegamestore-dev-184108-unauthRole",
+      "StackName": "amplify-onlinegamestore-dev-184108",
+      "StackId": "arn:aws:cloudformation:eu-west-2:070468362108:stack/amplify-onlinegamestore-dev-184108/de00f8b0-52a1-11eb-92b1-06fede497a26",
+      "AmplifyAppId": "d1vufgaizac3bq"
+    }
+  }
+}
