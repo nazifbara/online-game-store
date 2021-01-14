@@ -29,6 +29,22 @@ header {
   height: 50px;
 }
 
+img {
+  max-width: 100%;
+}
+
+.Field {
+  margin-bottom: 14px;
+}
+
+.Field label {
+  display: block;
+}
+
+.Field input {
+  width: 85%;
+}
+
 .AppName {
   font-family: 'Orbitron', sans-serif;
 }
@@ -47,6 +63,10 @@ header {
 .HeaderBar span {
   padding: 10px;
   font-size: 1.4rem;
+}
+
+.Container {
+  padding: 10px;
 }
 
 @media (min-width: 900px) {

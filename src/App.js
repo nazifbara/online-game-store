@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Cart from './components/Cart';
 import Home from './pages/Home';
 import CartPage from './pages/CartPage';
+import AdminPage from './pages/AdminPage';
 import { CartProvider } from './context/cart-context';
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
         </header>
 
         <Switch>
+          <Route path="/admin">
+            <AdminPage />
+          </Route>
           <Route path="/cart">
             <CartPage />
           </Route>

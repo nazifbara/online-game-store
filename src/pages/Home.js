@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+import { AmplifySignOut } from '@aws-amplify/ui-react';
 import './Home.css';
 import GameList from '../components/GameList';
 import Game from '../components/Game';
@@ -69,7 +70,7 @@ function Home() {
   return (
     <div>
       <h2 className="Title">Play Has No Limits</h2>
-
+      <AmplifySignOut />
       <GameList list={games.data}>
         {(item) => <Game key={item.id} item={item} />}
       </GameList>

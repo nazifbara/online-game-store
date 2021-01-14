@@ -1,0 +1,36 @@
+.NewArticleForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.NewArticleForm > div {
+  margin-bottom: 10px;
+}
+
+.NewArticleForm :nth-child(1) {
+  order: 2;
+}
+
+.NewArticleForm :nth-child(2) {
+  order: 1;
+}
+
+@media (min-width: 650px) {
+  .NewArticleForm {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .NewArticleForm :nth-child(1) {
+    order: 1;
+  }
+
+  .NewArticleForm :nth-child(2) {
+    order: 2;
+  }
+
+  .NewArticleForm > div {
+    width: 45%;
+  }
+}

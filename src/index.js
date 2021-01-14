@@ -1,16 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import 'normalize.css/normalize.css'
+import 'normalize.css/normalize.css';
 import App from './App';
+import Amplify from 'aws-amplify';
 import reportWebVitals from './reportWebVitals';
+import config from './aws-exports';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+Amplify.configure(config);
+
+ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

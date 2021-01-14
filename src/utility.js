@@ -1,4 +1,5 @@
 import Dinero from 'dinero.js';
+import { Auth } from 'aws-amplify';
 
 function printPrice(price) {
   const p = Dinero({ amount: price });
@@ -8,4 +9,21 @@ function printPrice(price) {
   return Dinero({ amount: price }).toFormat('$0,0');
 }
 
-export { printPrice };
+async function currentUserIsAdmin(session) {
+  const userSession = await Auth.currentSession();
+  return isAdmin(userSession);
+}
+
+function isAdmin(userSession) {
+  const {
+    accessToken: {
+      payload: { 'cognito:groups': groups },
+    },
+  } = userSession;
+
+  if (!groups) return false;
+
+  return groups.indexOf('Admin') !== -1;
+}
+
+export { printPrice, currentUserIsAdmin, isAdmin };
