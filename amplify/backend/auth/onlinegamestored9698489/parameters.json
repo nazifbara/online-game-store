@@ -1,6 +1,6 @@
 {
     "identityPoolName": "onlinegamestored9698489_identitypool_d9698489",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "onlined9698489",
     "userPoolName": "onlinegamestored9698489_userpool_d9698489",
     "autoVerifiedAttributes": [

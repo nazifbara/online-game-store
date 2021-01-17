@@ -1,0 +1,11 @@
+{
+    "AppSyncApiName": "onlinegamestore",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authonlinegamestored9698489",
+            "Outputs.UserPoolId"
+        ]
+    }
+}

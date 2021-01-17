@@ -26,4 +26,8 @@ function isAdmin(userSession) {
   return groups.indexOf('Admin') !== -1;
 }
 
-export { printPrice, currentUserIsAdmin, isAdmin };
+function getCents(priceString) {
+  return Number(priceString.replace('.', ''));
+}
+
+export { printPrice, currentUserIsAdmin, isAdmin, getCents };
