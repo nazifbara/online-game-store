@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'react-graceful-image';
 import './Game.css';
 import { printPrice } from '../utility';
 import AddToCart from './AddToCart';
@@ -6,7 +7,7 @@ import AddToCart from './AddToCart';
 function Game({ item }) {
   return (
     <article className="Game" key={item.id}>
-      <img alt="" src={item.imageUrl} />
+      <Image width="300" alt="" src={item.imageUrl} />
       <div className="GameMeta">
         <div>
           <h3>{item.title}</h3>

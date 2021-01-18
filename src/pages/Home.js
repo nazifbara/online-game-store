@@ -1,79 +1,57 @@
-import { useReducer } from 'react';
 import './Home.css';
+
+import { useEffect } from 'react';
+import { API, Storage } from 'aws-amplify';
 import GameList from '../components/GameList';
 import Game from '../components/Game';
-
-const initialGamesState = {
-  data: [
-    {
-      id: '111',
-      title: 'Spider Man',
-      imageUrl: '/spider-man-jaquette.jpg',
-      price: 2999,
-    },
-    {
-      id: '222',
-      title: 'Spider Man',
-      imageUrl: '/spider-man-jaquette.jpg',
-      price: 2999,
-    },
-    {
-      id: '333',
-      title: 'Spider Man',
-      imageUrl: '/spider-man-jaquette.jpg',
-      price: 4000,
-    },
-    {
-      id: '444',
-      title: 'Spider Man',
-      imageUrl: '/spider-man-jaquette.jpg',
-      price: 2999,
-    },
-    {
-      id: '555',
-      title: 'Spider Man',
-      imageUrl: '/spider-man-jaquette.jpg',
-      price: 2999,
-    },
-    {
-      id: '666',
-      title: 'Spider Man',
-      imageUrl: '/spider-man-jaquette.jpg',
-      price: 2999,
-    },
-    {
-      id: '777',
-      title: 'Spider Man',
-      imageUrl: '/spider-man-jaquette.jpg',
-      price: 7000,
-    },
-    {
-      id: '888',
-      title: 'Spider Man',
-      imageUrl: '/spider-man-jaquette.jpg',
-      price: 2999,
-    },
-  ],
-};
-
-function gamesReducer(state, action) {
-  switch (action.type) {
-    default:
-      return state;
-  }
-}
+import Message from '../components/Message';
+import useAsync from '../hooks/use-async';
+import { listGames } from '../api/queries';
 
 function Home() {
-  const [games] = useReducer(gamesReducer, initialGamesState);
+  const { status, data, error, run } = useAsync();
+  if (error) {
+    throw error;
+  }
+
+  useEffect(() => {
+    run(fetchGames());
+  }, [run]);
 
   return (
     <div>
       <h2 className="Title">Play Has No Limits</h2>
-      <GameList list={games.data}>
-        {(item) => <Game key={item.id} item={item} />}
-      </GameList>
+      {error && <Message type="failed">Something went wrong...</Message>}
+      {status === 'pending' && <span>Loading...</span>}
+      {status === 'resolved' && (
+        <GameList list={data}>
+          {(item) => <Game key={item.id} item={item} />}
+        </GameList>
+      )}
     </div>
   );
+}
+
+async function fetchGames() {
+  const data = await API.graphql({ query: listGames, authMode: 'API_KEY' });
+  const {
+    data: {
+      listGames: { items },
+    },
+  } = data;
+  const signedGames = await getSignedGames(items);
+  return signedGames;
+}
+
+async function getSignedGames(games) {
+  const signedGames = await Promise.all(
+    games.map(async (item) => {
+      const signedUrl = await Storage.get(item.imageKey);
+      item.imageUrl = signedUrl;
+      return item;
+    })
+  );
+  return signedGames;
 }
 
 export default Home;
