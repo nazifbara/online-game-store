@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+import { withAuthenticator } from '@aws-amplify/ui-react';
 import { useHistory } from 'react-router-dom';
 import { API, graphqlOperation, Storage } from 'aws-amplify';
 import { v4 as uuid } from 'uuid';
@@ -71,7 +71,6 @@ function Admin() {
 
   return (
     <div className="Container">
-      <AmplifySignOut />
       <h1>Add a game</h1>
       <form onSubmit={onSubmit} className="NewArticleForm">
         <div className="Preview">
