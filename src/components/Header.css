@@ -1,0 +1,25 @@
+.AppName {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.HeaderBar a {
+  text-decoration: none;
+  color: #071394;
+}
+
+.HeaderBar {
+  display: flex;
+  justify-content: space-between;
+  color: #071394;
+}
+
+.HeaderBar > span {
+  padding: 10px;
+  font-size: 1.1rem;
+}
+
+@media (min-width: 600px) {
+  .HeaderBar > span {
+    font-size: 1.5rem;
+  }
+}

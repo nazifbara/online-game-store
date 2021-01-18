@@ -45,26 +45,6 @@ img {
   width: 85%;
 }
 
-.AppName {
-  font-family: 'Orbitron', sans-serif;
-}
-
-.HeaderBar a {
-  text-decoration: none;
-  color: #071394;
-}
-
-.HeaderBar {
-  display: flex;
-  justify-content: space-between;
-  color: #071394;
-}
-
-.HeaderBar span {
-  padding: 10px;
-  font-size: 1.4rem;
-}
-
 .Container {
   padding: 10px;
 }
@@ -73,10 +53,5 @@ img {
   .Container {
     margin: 0 auto;
     max-width: 900px;
-  }
-
-  .HeaderBar span {
-    padding: 10px 0 10px 0;
-    font-size: 1.4rem;
   }
 }

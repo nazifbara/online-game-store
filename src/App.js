@@ -1,5 +1,5 @@
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Cart from './components/Cart';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Header from './components/Header';
 import Home from './pages/Home';
 import CartPage from './pages/CartPage';
 import AdminPage from './pages/AdminPage';
@@ -9,17 +9,7 @@ function App() {
   return (
     <Router>
       <CartProvider>
-        <header>
-          <div className="Container">
-            <div className="HeaderBar">
-              <span className="AppName">
-                <Link to="/">OnlineGameStore</Link>
-              </span>
-              <Cart />
-            </div>
-          </div>
-        </header>
-
+        <Header />
         <Switch>
           <Route path="/admin">
             <AdminPage />
