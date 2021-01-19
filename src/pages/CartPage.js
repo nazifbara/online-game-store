@@ -5,6 +5,14 @@ import { printPrice } from '../utility';
 function Cart() {
   const [cartItems, , onItemRemove, onQuantityChange] = useCart();
   const total = cartItems.reduce((total, item) => total + item.total, 0);
+
+  if (total === 0) {
+    return (
+      <div className="Container">
+        <h2 style={{ color: 'red', marginTop: '15px' }}>Your cart is empty</h2>
+      </div>
+    );
+  }
   return (
     <div className="Container">
       <h2>Shopping Cart</h2>
