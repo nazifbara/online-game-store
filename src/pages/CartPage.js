@@ -1,12 +1,13 @@
 import './CartPage.css';
+import { Link } from 'react-router-dom';
+import Button from '../components/Button';
 import { useCart } from '../context/cart-context';
 import { printPrice } from '../utility';
 
 function Cart() {
-  const [cartItems, , onItemRemove, onQuantityChange] = useCart();
-  const total = cartItems.reduce((total, item) => total + item.total, 0);
+  const { cartItems, onItemRemove, onQuantityChange, getCartTotal } = useCart();
 
-  if (total === 0) {
+  if (getCartTotal() === 0) {
     return (
       <div className="Container">
         <h2 style={{ color: 'red', marginTop: '15px' }}>Your cart is empty</h2>
@@ -47,11 +48,12 @@ function Cart() {
           ))}
         </tbody>
       </table>
-      <span>
-        <strong>Total: {printPrice(total)}</strong>
-      </span>
-      <br />
-      <a href="/#">Procced to checkout</a>
+      <div style={{ marginBottom: '15px' }}>
+        <strong>Total: {printPrice(getCartTotal())}</strong>
+      </div>
+      <Button type="primary">
+        <Link to="/checkout">Procced to checkout</Link>
+      </Button>
     </div>
   );
 }

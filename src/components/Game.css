@@ -8,6 +8,14 @@
 .GameMeta {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+}
+
+.GameMeta :nth-child(1) {
+  width: 70%;
+}
+.GameMeta :nth-child(2) {
+  width: 28%;
 }
 
 .Game span {

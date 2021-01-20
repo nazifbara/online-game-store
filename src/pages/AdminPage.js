@@ -83,6 +83,7 @@ function Admin() {
           <div className="Field">
             <label htmlFor="title">Title: </label>
             <input
+              className="Input"
               name="title"
               onChange={onIputChange}
               id="title"
@@ -92,6 +93,7 @@ function Admin() {
           <div className="Field">
             <label htmlFor="price">Price: </label>
             <input
+              className="Input"
               name="price"
               onChange={onIputChange}
               id="price"
@@ -101,7 +103,7 @@ function Admin() {
             />
           </div>
           <div className="Field">
-            <input onChange={onImageSelect} type="file" />
+            <input className="Input" onChange={onImageSelect} type="file" />
           </div>
 
           <Button type="primary">

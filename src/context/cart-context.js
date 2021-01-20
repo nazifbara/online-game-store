@@ -27,18 +27,29 @@ export function CartProvider(props) {
 
   function onQuantityChange(item, quantity) {
     const itemIndex = cartItems.findIndex((i) => i.id === item.id);
+    const newItemTotal = item.price * quantity;
     const newCartItems = [
       ...cartItems.slice(0, itemIndex),
-      { ...item, quantity, total: item.price * quantity },
+      { ...item, quantity, total: newItemTotal },
       ...cartItems.slice(itemIndex + 1),
     ];
     setCartItems(newCartItems);
   }
 
+  function getCartTotal() {
+    return cartItems.reduce((prev, i) => prev + i.total, 0);
+  }
+
   return (
     <CartContext.Provider
       {...props}
-      value={[cartItems, onItemAdd, onItemRemove, onQuantityChange]}
+      value={{
+        cartItems,
+        onItemAdd,
+        onItemRemove,
+        onQuantityChange,
+        getCartTotal,
+      }}
     />
   );
 }

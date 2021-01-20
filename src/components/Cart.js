@@ -5,7 +5,7 @@ import { useCart } from '../context/cart-context';
 
 function Cart() {
   const history = useHistory();
-  const [cartItems] = useCart();
+  const { cartItems } = useCart();
   let style = { cursor: 'pointer' };
   const isCartEmpty = cartItems.length > 0;
   style = isCartEmpty ? { color: 'red', ...style } : { ...style };
