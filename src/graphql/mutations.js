@@ -107,7 +107,6 @@ export const createGameOrder = /* GraphQL */ `
         }
         createdAt
         updatedAt
-        customer
       }
       createdAt
       updatedAt
@@ -149,7 +148,6 @@ export const updateGameOrder = /* GraphQL */ `
         }
         createdAt
         updatedAt
-        customer
       }
       createdAt
       updatedAt
@@ -191,7 +189,6 @@ export const deleteGameOrder = /* GraphQL */ `
         }
         createdAt
         updatedAt
-        customer
       }
       createdAt
       updatedAt
@@ -237,7 +234,6 @@ export const createOrder = /* GraphQL */ `
       }
       createdAt
       updatedAt
-      customer
     }
   }
 `;
@@ -268,7 +264,6 @@ export const updateOrder = /* GraphQL */ `
       }
       createdAt
       updatedAt
-      customer
     }
   }
 `;
@@ -299,7 +294,6 @@ export const deleteOrder = /* GraphQL */ `
       }
       createdAt
       updatedAt
-      customer
     }
   }
 `;

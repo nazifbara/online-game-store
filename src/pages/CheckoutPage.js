@@ -128,7 +128,12 @@ function CheckoutForm({ stripe, elements }) {
         />
       </div>
       <div className="Field">
-        <label htmlFor="card">Card:</label>
+        <label htmlFor="card">
+          Card:{' '}
+          <span style={{ color: 'green' }}>
+            enter 4242424242424242 - 08/30 - 123 - 12345
+          </span>
+        </label>
         <CardElement
           className="Input"
           options={{
