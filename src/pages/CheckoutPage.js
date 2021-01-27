@@ -47,7 +47,7 @@ function Checkout() {
 }
 
 function CheckoutForm({ stripe, elements }) {
-  const { cartItems, getCartTotal } = useCart();
+  const { cartItems, getCartTotal, clearCart } = useCart();
   const { status, error, run } = useAsync();
   const [form, setForm] = useState(initialFormState);
 
@@ -80,6 +80,7 @@ function CheckoutForm({ stripe, elements }) {
         },
       })
     );
+    clearCart();
   }
 
   return (

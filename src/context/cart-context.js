@@ -10,6 +10,10 @@ export function CartProvider(props) {
     localStorage.setItem('cart', JSON.stringify(cartItems));
   }, [cartItems]);
 
+  function clearCart() {
+    setCartItems([]);
+  }
+
   function onItemAdd(cartItem) {
     const { id, title, price } = cartItem;
     const existingItemIndex = cartItems.findIndex((i) => i.id === id);
@@ -57,6 +61,7 @@ export function CartProvider(props) {
         onQuantityChange,
         getCartTotal,
         getItemTotal,
+        clearCart,
       }}
     />
   );
