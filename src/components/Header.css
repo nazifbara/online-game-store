@@ -1,3 +1,13 @@
+header {
+  box-shadow: 0 0.5px 8px 0.4px black;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  height: 50px;
+  z-index: 100;
+}
+
 .AppName {
   font-family: 'Orbitron', sans-serif;
 }
@@ -14,7 +24,6 @@
 }
 
 .HeaderBar > span {
-  padding: 10px;
   font-size: 1.1rem;
 }
 

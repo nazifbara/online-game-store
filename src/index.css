@@ -20,15 +20,6 @@ body {
   padding-top: 50px;
 }
 
-header {
-  box-shadow: 0 0.5px 8px 0.4px black;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: white;
-  height: 50px;
-}
-
 img {
   max-width: 100%;
 }
