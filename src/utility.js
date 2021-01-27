@@ -27,7 +27,10 @@ function isAdmin(userSession) {
 }
 
 function getCents(priceString) {
-  return Number(priceString.replace('.', ''));
+  if (priceString.indexOf('.') !== -1) {
+    return Number(priceString.replace('.', ''));
+  }
+  return Number(priceString) * 100;
 }
 
 export { printPrice, currentUserIsAdmin, isAdmin, getCents };

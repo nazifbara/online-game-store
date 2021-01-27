@@ -5,7 +5,13 @@ import { useCart } from '../context/cart-context';
 import { printPrice } from '../utility';
 
 function Cart() {
-  const { cartItems, onItemRemove, onQuantityChange, getCartTotal } = useCart();
+  const {
+    cartItems,
+    onItemRemove,
+    onQuantityChange,
+    getCartTotal,
+    getItemTotal,
+  } = useCart();
 
   if (getCartTotal() === 0) {
     return (
@@ -43,7 +49,7 @@ function Cart() {
                 <br />
                 <button onClick={() => onItemRemove(i)}>remove</button>
               </td>
-              <td>{printPrice(i.total)}</td>
+              <td>{printPrice(getItemTotal(i))}</td>
             </tr>
           ))}
         </tbody>

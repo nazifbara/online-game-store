@@ -5,14 +5,12 @@ const CartContext = createContext();
 export function CartProvider(props) {
   const [cartItems, setCartItems] = useState([]);
 
-  function onItemAdd(item) {
-    const existingItemIndex = cartItems.findIndex((i) => i.id === item.id);
+  function onItemAdd(cartItem) {
+    const { id, title, price } = cartItem;
+    const existingItemIndex = cartItems.findIndex((i) => i.id === id);
     if (existingItemIndex !== -1) return;
 
-    const newCartItems = [
-      ...cartItems,
-      { ...item, total: item.price, quantity: 1 },
-    ];
+    const newCartItems = [...cartItems, { id, title, price, quantity: 1 }];
     setCartItems(newCartItems);
   }
 
@@ -25,19 +23,23 @@ export function CartProvider(props) {
     setCartItems(newCartItems);
   }
 
-  function onQuantityChange(item, quantity) {
-    const itemIndex = cartItems.findIndex((i) => i.id === item.id);
-    const newItemTotal = item.price * quantity;
+  function onQuantityChange(cartItem, quantity) {
+    const { id, title, price } = cartItem;
+    const itemIndex = cartItems.findIndex((i) => i.id === id);
     const newCartItems = [
       ...cartItems.slice(0, itemIndex),
-      { ...item, quantity, total: newItemTotal },
+      { id, title, quantity, price },
       ...cartItems.slice(itemIndex + 1),
     ];
     setCartItems(newCartItems);
   }
 
   function getCartTotal() {
-    return cartItems.reduce((prev, i) => prev + i.total, 0);
+    return cartItems.reduce((prev, i) => prev + getItemTotal(i), 0);
+  }
+
+  function getItemTotal(cartItem) {
+    return cartItem.price * cartItem.quantity;
   }
 
   return (
@@ -49,6 +51,7 @@ export function CartProvider(props) {
         onItemRemove,
         onQuantityChange,
         getCartTotal,
+        getItemTotal,
       }}
     />
   );

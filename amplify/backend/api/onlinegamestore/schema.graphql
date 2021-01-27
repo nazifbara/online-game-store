@@ -14,4 +14,73 @@ type Game
   title: String!
   imageKey: String
   price: Int
+  orders: [GameOrder] @connection(keyName: "byGame", fields: ["id"])
+}
+
+type GameOrder
+  @model(queries: null, subscriptions: null)
+  @key(name: "byGame", fields: ["game_id", "order_id"])
+  @key(name: "byOrder", fields: ["order_id", "game_id"])
+  @auth(
+    rules: [
+      # allow admins to create gameorders for customers by using customer email in lambda
+      { allow: owner, identityClaim: "email", ownerField: "customer" }
+      { allow: groups, groups: ["Admin"] }
+    ]
+  ) {
+  id: ID!
+  game_id: ID!
+  order_id: ID!
+  game: Game @connection(fields: ["game_id"])
+  order: Order @connection(fields: ["order_id"])
+}
+
+type Order
+  @model(subscriptions: null)
+  @auth(
+    rules: [
+      # only owner can see his orders
+      { allow: owner, identityClaim: "email", ownerField: "user" }
+      # allow admins to view orders
+      { allow: groups, groups: ["Admin"] }
+    ]
+  )
+  @key(name: "byUser", fields: ["user"]) {
+  id: ID!
+  user: String!
+  date: String
+  total: Int
+  country: String
+  city: String
+  zipCode: String
+  address: String
+  games: [GameOrder] @connection(keyName: "byOrder", fields: ["id"])
+}
+
+type Mutation {
+  processOrder(input: ProcessOrderInput!): OrderStatus
+    @function(name: "processPayment-${env}")
+    @function(name: "createOrder-${env}")
+}
+
+enum OrderStatus {
+  SUCCESS
+  FAILED
+}
+
+input CartItem {
+  id: ID!
+  title: String
+  price: Int
+  quantity: Int
+}
+
+input ProcessOrderInput {
+  cart: [CartItem]
+  total: Int!
+  token: String!
+  country: String
+  city: String
+  zipCode: String
+  address: String
 }

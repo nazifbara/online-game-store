@@ -1,15 +1,58 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getGame = /* GraphQL */ `
-  query GetGame($id: ID!) {
-    getGame(id: $id) {
+export const getOrder = /* GraphQL */ `
+  query GetOrder($id: ID!) {
+    getOrder(id: $id) {
       id
-      title
-      imageKey
-      price
+      user
+      date
+      total
+      country
+      city
+      zipCode
+      address
+      games {
+        items {
+          id
+          game_id
+          order_id
+          createdAt
+          updatedAt
+          customer
+        }
+        nextToken
+      }
       createdAt
       updatedAt
+      customer
+    }
+  }
+`;
+export const listOrders = /* GraphQL */ `
+  query ListOrders(
+    $filter: ModelOrderFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listOrders(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        user
+        date
+        total
+        country
+        city
+        zipCode
+        address
+        games {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        customer
+      }
+      nextToken
     }
   }
 `;
@@ -25,10 +68,36 @@ export const listGames = /* GraphQL */ `
         title
         imageKey
         price
+        orders {
+          nextToken
+        }
         createdAt
         updatedAt
       }
       nextToken
+    }
+  }
+`;
+export const getGame = /* GraphQL */ `
+  query GetGame($id: ID!) {
+    getGame(id: $id) {
+      id
+      title
+      imageKey
+      price
+      orders {
+        items {
+          id
+          game_id
+          order_id
+          createdAt
+          updatedAt
+          customer
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
     }
   }
 `;
