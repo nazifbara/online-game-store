@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'normalize.css/normalize.css';
-import App from './App';
+import App from './components/app';
 import Amplify from 'aws-amplify';
 import reportWebVitals from './reportWebVitals';
 import config from './aws-exports';

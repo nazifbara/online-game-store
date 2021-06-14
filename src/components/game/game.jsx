@@ -1,8 +1,8 @@
 import React from 'react';
 import Image from 'react-graceful-image';
-import './Game.css';
-import { printPrice } from '../utility';
-import AddToCart from './AddToCart';
+import './game.css';
+import { printPrice } from '../../utils';
+import AddToCart from '../add_to_cart';
 
 function Game({ item }) {
   return (

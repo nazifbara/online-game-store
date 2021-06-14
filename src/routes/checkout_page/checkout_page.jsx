@@ -1,4 +1,4 @@
-import './CheckoutPage.css';
+import './checkout_page.css';
 
 import { useState } from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
@@ -10,14 +10,14 @@ import {
 } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
-import useAsync from '../hooks/use-async';
-import { processOrder } from '../api/mutations';
-import { useCart } from '../context/cart-context';
-import Button from '../components/Button';
-import Message from '../components/Message';
-import { printPrice } from '../utility';
+import useAsync from '../../hooks/use_async';
+import { processOrder } from '../../api/mutations';
+import { useCart } from '../../context/cart_context';
+import Button from '../../components/button';
+import Message from '../../components/message';
+import { printPrice } from '../../utils';
 
-function Checkout() {
+function CheckoutPage() {
   const { cartItems, getCartTotal, getItemTotal } = useCart();
   const [stripePromise] = useState(() =>
     loadStripe('pk_test_gj7dXJ4Qc852MzYqINg6QULX')
@@ -175,4 +175,12 @@ const initialFormState = {
   address: '',
 };
 
-export default withAuthenticator(Checkout);
+const route = {
+  routeProps: {
+    path: '/checkout',
+    component: withAuthenticator(CheckoutPage),
+  },
+  name: 'CheckoutPage',
+};
+
+export default route;

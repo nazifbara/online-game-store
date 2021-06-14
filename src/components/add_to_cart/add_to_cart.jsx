@@ -1,5 +1,5 @@
-import Button from './Button';
-import { useCart } from '../context/cart-context';
+import Button from '../button';
+import { useCart } from '../../context/cart_context';
 
 function AddToCart({ item }) {
   const { cartItems, onItemAdd, onItemRemove } = useCart();

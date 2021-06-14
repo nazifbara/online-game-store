@@ -3,14 +3,14 @@ import { withAuthenticator } from '@aws-amplify/ui-react';
 import { useHistory } from 'react-router-dom';
 import { API, graphqlOperation, Storage } from 'aws-amplify';
 import { v4 as uuid } from 'uuid';
-import './AdminPage.css';
-import Button from '../components/Button';
-import Message from '../components/Message';
-import { currentUserIsAdmin, getCents } from '../utility';
-import useAsync from '../hooks/use-async';
-import { createGame } from '../api/mutations';
+import './admin_page.css';
+import Button from '../../components/button';
+import Message from '../../components/message';
+import { currentUserIsAdmin, getCents } from '../../utils';
+import useAsync from '../../hooks/use_async';
+import { createGame } from '../../api/mutations';
 
-function Admin() {
+function AdminPage() {
   const [imagePreview, setImagePreview] = useState('');
   const [imageFile, setImageFile] = useState();
   const [form, setForm] = useState(initialFormState);
@@ -128,4 +128,12 @@ const initialFormState = {
   price: '',
 };
 
-export default withAuthenticator(Admin);
+const route = {
+  routeProps: {
+    path: '/admin',
+    component: withAuthenticator(AdminPage),
+  },
+  name: 'AdminPage',
+};
+
+export default route;

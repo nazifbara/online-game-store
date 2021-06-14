@@ -1,10 +1,10 @@
-import './CartPage.css';
+import './cart_page.css';
 import { Link } from 'react-router-dom';
-import Button from '../components/Button';
-import { useCart } from '../context/cart-context';
-import { printPrice } from '../utility';
+import Button from '../../components/button';
+import { useCart } from '../../context/cart_context';
+import { printPrice } from '../../utils';
 
-function Cart() {
+function CartPage() {
   const {
     cartItems,
     onItemRemove,
@@ -64,4 +64,12 @@ function Cart() {
   );
 }
 
-export default Cart;
+const route = {
+  routeProps: {
+    path: '/cart',
+    component: CartPage,
+  },
+  name: 'CartPage',
+};
+
+export default route;

@@ -1,5 +1,5 @@
 import { useReducer, useCallback } from 'react';
-import useSafeDispatch from './use-safe-dispatch';
+import useSafeDispatch from './use_safe_dispatch';
 
 function asyncReducer(state, action) {
   switch (action.type) {

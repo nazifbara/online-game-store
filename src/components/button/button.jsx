@@ -1,4 +1,4 @@
-import './Button.css';
+import './button.css';
 
 function Button({ type = 'default', handleClick, children, ...other }) {
   return (

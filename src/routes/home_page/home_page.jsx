@@ -1,14 +1,14 @@
-import './Home.css';
+import './home_page.css';
 
 import { useEffect } from 'react';
 import { API, Storage } from 'aws-amplify';
-import GameList from '../components/GameList';
-import Game from '../components/Game';
-import Message from '../components/Message';
-import useAsync from '../hooks/use-async';
-import { listGames } from '../api/queries';
+import GameList from '../../components/game_list';
+import Game from '../../components/game';
+import Message from '../../components/message';
+import { useAsync } from '../../hooks';
+import { listGames } from '../../api/queries';
 
-function Home() {
+function HomePage() {
   const { status, data, error, run } = useAsync();
   if (error) {
     throw error;
@@ -54,4 +54,12 @@ async function getSignedGames(games) {
   return signedGames;
 }
 
-export default Home;
+const route = {
+  routeProps: {
+    path: '/',
+    component: HomePage,
+  },
+  name: 'HomePage',
+};
+
+export default route;

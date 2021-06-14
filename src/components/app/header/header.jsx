@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { GrLogout } from 'react-icons/gr';
 import { Link, useHistory } from 'react-router-dom';
 import { Auth, Hub } from 'aws-amplify';
-import Cart from './Cart';
-import './Header.css';
+import Cart from '../../cart';
+import './header.css';
 
 function Header() {
   const [isAuthenticated, setIsAuthenticated] = useState();

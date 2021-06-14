@@ -1,7 +1,7 @@
 import React from 'react';
 import { FiShoppingCart } from 'react-icons/fi';
 import { useHistory } from 'react-router-dom';
-import { useCart } from '../context/cart-context';
+import { useCart } from '../../context/cart_context';
 
 function Cart() {
   const history = useHistory();
