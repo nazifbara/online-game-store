@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { GrLogout } from 'react-icons/gr';
+import LogoutIcon from './logout_icon';
 import { Link, useHistory } from 'react-router-dom';
 import { Auth, Hub } from 'aws-amplify';
 import Cart from '../../cart';
@@ -39,17 +39,17 @@ function Header() {
       <div className="Container">
         <div className="HeaderBar">
           <span className="AppName">
-            <Link to="/">OnlineGameStore</Link>
+            <Link to="/">GameStore</Link>
           </span>
-          <span>
+          <div>
             <Cart />
             {isAuthenticated ? (
-              <GrLogout
+              <LogoutIcon
                 onClick={signOut}
-                style={{ marginLeft: '10px', cursor: 'pointer' }}
+                style={{ marginLeft: '1rem', cursor: 'pointer' }}
               />
             ) : null}
-          </span>
+          </div>
         </div>
       </div>
     </header>

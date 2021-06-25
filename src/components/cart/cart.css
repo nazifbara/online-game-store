@@ -1,0 +1,17 @@
+.badge {
+  position: absolute;
+  left: 45%;
+  bottom: 60%;
+  color: #edf2f4;
+  background-color: #d90429;
+  padding: 0.2rem;
+  border-radius: 50%;
+  font-size: 0.6rem;
+  font-weight: 400;
+}
+
+@media (min-width: 37.5rem) {
+  .badge {
+    font-size: 0.7rem;
+  }
+}
