@@ -1,18 +1,30 @@
-.Title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 300px;
-  background-image: linear-gradient(
-      to bottom,
-      rgba(7, 19, 148, 0.575),
-      rgba(7, 19, 148, 0.733)
-    ),
-    url('../../images/hero.jpg');
+.title {
+  color: #fdc500;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  font-weight: 300;
+  letter-spacing: 0.4rem;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+.carousel {
+  height: 18.75rem;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  color: white;
-  font-weight: 300;
-  letter-spacing: 0.4rem;
+}
+
+@media (min-width: 37.5rem) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .carousel {
+    height: 31.25rem;
+  }
 }
