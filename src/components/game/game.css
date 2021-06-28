@@ -1,27 +1,33 @@
 .Game {
-  box-shadow: 0 0 6px 0.5px black;
-  margin-bottom: 15px;
-  padding: 10px;
-  width: 300px;
-}
-
-.GameMeta {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
+  border-radius: 0.3125rem;
+  margin-bottom: 0.9375rem;
+  padding: 1.25rem;
+  background-color: #1b263b;
 }
 
-.GameMeta :nth-child(1) {
-  width: 70%;
-}
-.GameMeta :nth-child(2) {
-  width: 28%;
+.Game > :first-child {
+  align-self: center;
 }
 
-.Game span {
+.Game > :not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.Game h3 {
   font-size: 1.2rem;
-  font-weight: 900;
-  color: #071394;
+  font-weight: 400;
+}
+
+.Game span,
+.Game button {
+  font-weight: 700;
+}
+
+.Game button {
+  font-size: 1rem;
 }
 
 @media (min-width: 650px) {

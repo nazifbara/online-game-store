@@ -6,28 +6,27 @@
   cursor: pointer;
   width: 100%;
   z-index: 1;
+  color: #0d1b2a;
 }
 
 .Button > a {
   text-decoration: none;
-  color: white;
+  color: #0d1b2a;
   width: 100%;
   display: block;
 }
 
 .default {
   background-color: #7a7878;
-  color: whitesmoke;
 }
 
 .primary {
-  background-color: #071394;
-  color: whitesmoke;
+  background-color: #fdc500;
 }
 
 .danger {
-  background-color: red;
-  color: whitesmoke;
+  background-color: #d90429;
+  color: #edf2f4;
 }
 
 Button:hover {

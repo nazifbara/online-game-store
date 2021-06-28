@@ -7,14 +7,10 @@ import AddToCart from '../add_to_cart';
 function Game({ item }) {
   return (
     <article className="Game" key={item.id}>
-      <Image width="300" alt="" src={item.imageUrl} />
-      <div className="GameMeta">
-        <div>
-          <h3>{item.title}</h3>
-          <span>{printPrice(item.price)}</span>
-        </div>
-        <AddToCart item={item} />
-      </div>
+      <Image width="100%" alt="" src={item.imageUrl} />
+      <h3>{item.title}</h3>
+      <span>{printPrice(item.price)}</span>
+      <AddToCart item={item} />
     </article>
   );
 }
