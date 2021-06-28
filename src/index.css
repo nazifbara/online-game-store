@@ -46,10 +46,10 @@ img {
   padding: 15px;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1000px) {
   .Container {
     margin: 0 auto;
-    max-width: 900px;
+    max-width: 1000px;
   }
 
   .Input {
