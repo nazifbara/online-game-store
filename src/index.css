@@ -26,6 +26,23 @@ img {
   max-width: 100%;
 }
 
+table {
+  margin-top: 1.875rem;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  border-bottom: 1px solid #edf2f4;
+  padding: 0.5rem;
+}
+
+tr:nth-child(even) {
+  background-color: #1b263b;
+}
+
 .Field {
   margin-bottom: 14px;
 }
