@@ -26,21 +26,33 @@ function CheckoutPage() {
   return (
     <div className="Container">
       <h2>Checkout</h2>
-      <div className="Checkout">
-        <div className="Summary">
-          <h3>Summary</h3>
-          {cartItems.map((item) => (
-            <div key={item.id} className="SummaryItem">
-              <span>{item.title}</span>
-              <span>{printPrice(getItemTotal(item))}</span>
-              <span>Qty: {item.quantity}</span>
-            </div>
-          ))}
+      <div className="checkout">
+        <div style={{ marginBottom: '40px' }}>
+          <table>
+            <thead>
+              <tr>
+                <th>Game</th>
+                <th>Price</th>
+                <th>Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cartItems.map((i) => (
+                <tr key={i.id}>
+                  <td>{i.title}</td>
+                  <td>{printPrice(getItemTotal(i))}</td>
+                  <td>{i.quantity}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
           <span>Total : {printPrice(getCartTotal())}</span>
         </div>
-        <Elements stripe={stripePromise}>
-          <InjectedCheckoutForm />
-        </Elements>
+        <div>
+          <Elements stripe={stripePromise}>
+            <InjectedCheckoutForm />
+          </Elements>
+        </div>
       </div>
     </div>
   );
@@ -86,7 +98,7 @@ function CheckoutForm({ stripe, elements }) {
   return (
     <form onSubmit={handleSubmit}>
       <div className="Field">
-        <label htmlFor="country">Country: </label>
+        <label htmlFor="country">Country </label>
         <input
           value={form.country}
           onChange={handlInputChange}
@@ -97,7 +109,7 @@ function CheckoutForm({ stripe, elements }) {
         />
       </div>
       <div className="Field">
-        <label htmlFor="city">City: </label>
+        <label htmlFor="city">City </label>
         <input
           value={form.city}
           onChange={handlInputChange}
@@ -107,7 +119,7 @@ function CheckoutForm({ stripe, elements }) {
         />
       </div>
       <div className="Field">
-        <label htmlFor="zipCode">ZIP-CODE: </label>
+        <label htmlFor="zipCode">ZIP-CODE </label>
         <input
           value={form.zipCode}
           onChange={handlInputChange}
@@ -117,7 +129,7 @@ function CheckoutForm({ stripe, elements }) {
         />
       </div>
       <div className="Field">
-        <label htmlFor="address">Address: </label>
+        <label htmlFor="address">Address </label>
         <input
           value={form.address}
           onChange={handlInputChange}
@@ -127,19 +139,18 @@ function CheckoutForm({ stripe, elements }) {
           id="address"
         />
       </div>
+      <p style={{ color: 'green', marginBottom: '10px' }}>
+        Enter 4242424242424242 - 08/30 - 123 - 12345
+      </p>
       <div className="Field">
-        <label htmlFor="card">
-          Card:{' '}
-          <span style={{ color: 'green' }}>
-            enter 4242424242424242 - 08/30 - 123 - 12345
-          </span>
-        </label>
+        <label htmlFor="card">Card</label>
         <CardElement
           className="Input"
           options={{
             style: {
               base: {
-                backgroundColor: 'white',
+                backgroundColor: '#0d1b2a',
+                color: '#edf2f4',
               },
             },
           }}
