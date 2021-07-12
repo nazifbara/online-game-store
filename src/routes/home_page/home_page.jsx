@@ -19,7 +19,7 @@ const IMAGES_BASE_PATH = 'images/';
 const IMAGES_SRC = [
   `${IMAGES_BASE_PATH}spider-man-hero.png`,
   `${IMAGES_BASE_PATH}uncharted4-hero.jpg`,
-  `${IMAGES_BASE_PATH}god-of-war-hero.webp`,
+  `${IMAGES_BASE_PATH}god-of-war-hero.jpg`,
   `${IMAGES_BASE_PATH}horizon-zero-dawn-hero.jpg`,
   `${IMAGES_BASE_PATH}demon-soul-hero.jpg`,
   `${IMAGES_BASE_PATH}ratchet-and-clank-hero.jpg`,
